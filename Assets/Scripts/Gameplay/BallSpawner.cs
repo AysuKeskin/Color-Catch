@@ -14,10 +14,11 @@ public class BallSpawner : MonoBehaviour
     {
         if (LevelManager.GetLevelState() != LevelState.InProgress)
             return;
-        if (Time.time >= spawnTimer)
+        spawnTimer -= Time.deltaTime;
+        if (spawnTimer <= 0f)
         {
             ballPool.Spawn();
-            spawnTimer += spawnInterval;
+            spawnTimer = spawnInterval;
         }
     }
 }

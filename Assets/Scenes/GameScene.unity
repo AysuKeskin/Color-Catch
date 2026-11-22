@@ -226,8 +226,7 @@ MonoBehaviour:
   speed: 2
   xLimit: 3
   spriteRenderer: {fileID: 228791741}
-  spawn: {fileID: 1549065871}
-  pooling: {fileID: 1148533078}
+  ballPool: {fileID: 1148533078}
 --- !u!1 &302629786
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   player: {fileID: 228791743}
-  pooling: {fileID: 1148533078}
+  ballPool: {fileID: 1148533078}
   startLives: 3
   pointsPerBall: 10
 --- !u!4 &302629788
@@ -269,12 +268,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302629786}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 422.39252, y: 1427.9525, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 975481376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &458597786
 GameObject:
@@ -1040,6 +1039,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941516827}
   m_CullTransparentMesh: 1
+--- !u!1 &975481375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975481376}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &975481376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975481375}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 422.39252, y: 1427.9525, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 302629788}
+  - {fileID: 1148533079}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1148533077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pooling
   prefab: {fileID: 8124368397483824907, guid: f99e9e9366c984f219c18c582cb0ce77, type: 3}
-  spawn: {fileID: 1549065871}
   spawnY: 6
   spawnXRange: 2.4
 --- !u!4 &1148533079
@@ -1081,12 +1112,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148533077}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.04151, y: -51.02175, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -402.351, y: -1478.9742, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 975481376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1190358813
 GameObject:
@@ -1585,7 +1616,7 @@ GameObject:
   - component: {fileID: 1549065872}
   - component: {fileID: 1549065871}
   m_Layer: 0
-  m_Name: Spawns
+  m_Name: BallSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1604,7 +1635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawn
   spawnInterval: 1
-  pooling: {fileID: 1148533078}
+  ballPool: {fileID: 1148533078}
 --- !u!4 &1549065872
 Transform:
   m_ObjectHideFlags: 0
@@ -2308,7 +2339,6 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 228791742}
   - {fileID: 1549065872}
-  - {fileID: 1148533079}
   - {fileID: 2098677609}
   - {fileID: 1190358816}
-  - {fileID: 302629788}
+  - {fileID: 975481376}
