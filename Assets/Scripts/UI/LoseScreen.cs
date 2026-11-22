@@ -3,13 +3,13 @@ using TMPro;
 public class LoseScreen : MonoBehaviour
 {
     [SerializeField] private GameObject losePanel;
-    [SerializeField] private Player player;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private TextMeshProUGUI highestScoreText;
 
 
     void OnEnable()
     {
-        LevelManager.onLose += ShowLoseScreen;
+        LevelManager.OnLose += ShowLoseScreen;
     }
     private void ShowLoseScreen()
     {
@@ -18,14 +18,13 @@ public class LoseScreen : MonoBehaviour
     }
     void OnDisable()
     {
-        LevelManager.onLose -= ShowLoseScreen;
+        LevelManager.OnLose -= ShowLoseScreen;
     }
 
 
     public void RestartLevel()
     {
-        LevelManager.SetLevelState(LevelState.InProgress);
         losePanel.SetActive(false);
-        player.ResetPlayer();
+        gameManager.Restart();
     }
 }

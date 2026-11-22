@@ -224,9 +224,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   speed: 2
+  xLimit: 3
   spriteRenderer: {fileID: 228791741}
   spawn: {fileID: 1549065871}
   pooling: {fileID: 1148533078}
+--- !u!1 &302629786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 302629788}
+  - component: {fileID: 302629787}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &302629787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302629786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96aa18b3516f445daace018df908baa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  player: {fileID: 228791743}
+  pooling: {fileID: 1148533078}
+  startLives: 3
+  pointsPerBall: 10
+--- !u!4 &302629788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302629786}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 422.39252, y: 1427.9525, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &458597786
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoseScreen
   losePanel: {fileID: 1331010601}
-  player: {fileID: 228791743}
+  gameManager: {fileID: 302629787}
   highestScoreText: {fileID: 611889279}
 --- !u!1 &519420028
 GameObject:
@@ -1022,7 +1071,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pooling
   prefab: {fileID: 8124368397483824907, guid: f99e9e9366c984f219c18c582cb0ce77, type: 3}
   spawn: {fileID: 1549065871}
-  player: {fileID: 228791743}
+  spawnY: 6
+  spawnXRange: 2.4
 --- !u!4 &1148533079
 Transform:
   m_ObjectHideFlags: 0
@@ -1553,8 +1603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9314e10ce9962437a97d49df566e32f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawn
-  prefab: {fileID: 8124368397483824907, guid: f99e9e9366c984f219c18c582cb0ce77, type: 3}
-  player: {fileID: 228791743}
   spawnInterval: 1
   pooling: {fileID: 1148533078}
 --- !u!4 &1549065872
@@ -2244,7 +2292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed03e094a20694f9daf03977212c9ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hud
-  player: {fileID: 228791743}
+  gameManager: {fileID: 302629787}
   scoreText: {fileID: 1511818633}
   spritesCatalog: {fileID: 11400000, guid: dddec6aaadebe4af38ed99e8da8304b9, type: 2}
   lifeImages:
@@ -2263,3 +2311,4 @@ SceneRoots:
   - {fileID: 1148533079}
   - {fileID: 2098677609}
   - {fileID: 1190358816}
+  - {fileID: 302629788}

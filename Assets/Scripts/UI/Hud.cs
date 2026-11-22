@@ -4,19 +4,19 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 public class Hud : MonoBehaviour
 {
-    [SerializeField] private Player player;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private SpritesCatalog spritesCatalog;
     [SerializeField] private List<Image> lifeImages;
     void OnEnable()
     {
-        player.onScoreChanged += UpdateScore;
-        player.onLivesChanged += UpdateLives;
+        gameManager.OnScoreChanged += UpdateScore;
+        gameManager.OnLivesChanged += UpdateLives;
     }
     void OnDisable()
     {
-        player.onScoreChanged -= UpdateScore;
-        player.onLivesChanged -= UpdateLives;
+        gameManager.OnScoreChanged -= UpdateScore;
+        gameManager.OnLivesChanged -= UpdateLives;
     }
 
     private void UpdateScore(int score)
