@@ -1,8 +1,10 @@
 # Color Catch
 
+<img src="Docs/gameplay.gif" alt="Gameplay" width="260" align="right">
+
 A small 2D arcade game made with Unity. Balls fall from the top of the screen. Switch your color to match them and catch them before they reach the bottom.
 
-![Gameplay](Docs/gameplay.gif)
+<br clear="right">
 
 ## How to Play
 
@@ -45,7 +47,9 @@ Assets/Scripts/
 
 1. Clone the repository.
 2. Open the folder with Unity Hub, using Unity 6000.3.22f1.
-3. Open `Assets/Scenes/GameScene.unity` and press **Play**.
+3. Open `Assets/Scenes/GameScene.unity`.
+4. In the **Game** view, set the resolution to **1080 × 1920** (portrait). If it's not in the list, add it with the **+** button.
+5. Press **Play**.
 
 ## AI Usage
 
