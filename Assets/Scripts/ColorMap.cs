@@ -1,13 +1,12 @@
 using UnityEngine;
-using System.Collections.Generic;
+
 public static class ColorMap
 {
-    public static readonly Dictionary<int, Color> Map = new Dictionary<int, Color>
+    // Index = color id. 
+    public static readonly Color[] Colors =
     {
-        { 0, Color.red },
-        { 1, Color.blue },
-        { 2, Color.green }
+        Color.red,
+        Color.blue,
+        Color.green
     };
-
-
 }

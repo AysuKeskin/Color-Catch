@@ -17,9 +17,9 @@ public class Pooling : MonoBehaviour
     private Ball Create()
     {
         Ball ballInstance = Instantiate(prefab, transform);
-        ballInstance.Init(player, spawn);
+        ballInstance.Init(player, spawn, this);
         ballInstance.transform.position = new Vector3(Random.Range(-2.4f, 2.4f), 6f, 0f);
-        ballInstance.spriteRenderer.color = ColorMap.Map[Random.Range(0, ColorMap.Map.Count)];
+        ballInstance.SetColor(Random.Range(0, ColorMap.Colors.Length));
         ballInstance.gameObject.SetActive(false);
         return ballInstance;
     }
@@ -30,7 +30,7 @@ public class Pooling : MonoBehaviour
     private void OnRelease(Ball ball)
     {
         ball.transform.position = new Vector3(Random.Range(-2.4f, 2.4f), 6f, 0f);
-        ball.spriteRenderer.color = ColorMap.Map[Random.Range(0, ColorMap.Map.Count)];
+        ball.SetColor(Random.Range(0, ColorMap.Colors.Length));
         ball.gameObject.SetActive(false);
     }
     public Ball GetBall()

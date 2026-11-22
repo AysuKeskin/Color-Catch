@@ -45,10 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09ddd0da6c8a4ba6bba77fcc7cf1797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ball
-  speed: -2
-  spawn: {fileID: 0}
-  player: {fileID: 0}
-  playerSpriteRenderer: {fileID: 0}
+  speed: 2
   spriteRenderer: {fileID: 2425809653693232105}
 --- !u!212 &2425809653693232105
 SpriteRenderer:
