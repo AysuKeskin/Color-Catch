@@ -2,13 +2,16 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Pool;
 using System;
-public class Pool{
-    [SerializeField] private int poolSize = 10;
+public class Pool
+{
+    private int poolSize = 10;
     private ObjectPool<Ball> ballPool;
 
 
-    public Pool(Func<Ball> Create, Action<Ball> OnGet, Action<Ball> OnRelease){
+    public Pool(Func<Ball> Create, Action<Ball> OnGet, Action<Ball> OnRelease, int poolSize = 10)
+    {
         ballPool = new ObjectPool<Ball>(Create, OnGet, OnRelease);
+        this.poolSize = poolSize;
     }
 
     public Ball GetBall()
@@ -28,9 +31,9 @@ public class Pool{
         {
             Ball ball = ballPool.Get();
             prewarmedBalls.Add(ball);
-            
+
         }
-        foreach(Ball ball in prewarmedBalls)
+        foreach (Ball ball in prewarmedBalls)
         {
             ballPool.Release(ball);
         }

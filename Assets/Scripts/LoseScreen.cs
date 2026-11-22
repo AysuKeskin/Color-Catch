@@ -5,7 +5,7 @@ public class LoseScreen : MonoBehaviour
     [SerializeField] private GameObject losePanel;
     [SerializeField] private Player player;
     [SerializeField] private TextMeshProUGUI highestScoreText;
-   
+
 
     void OnEnable()
     {

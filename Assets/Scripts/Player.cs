@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
-using System.Collections.Generic;
+
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
@@ -25,8 +25,9 @@ public class Player : MonoBehaviour
         }
     }
     private int score = 0;
-    
-    void Start(){
+
+    void Start()
+    {
         Time.timeScale = 1f;
         LevelManager.SetLevelState(LevelState.InProgress);
         RemainingLives = 3;
@@ -37,25 +38,25 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(LevelManager.GetLevelState() != LevelState.InProgress)
+        if (LevelManager.GetLevelState() != LevelState.InProgress)
         {
             return;
         }
         float horizontal = 0f;
         int change = 0;
-       
-        
+
+
         if (Keyboard.current != null)
         {
             if ((Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed) && transform.position.x > -3f) horizontal = -1f;
             if ((Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed) && transform.position.x < 3f) horizontal = 1f;
             if (Keyboard.current.spaceKey.wasPressedThisFrame) change = 1;
         }
-        if(change == 1)
+        if (change == 1)
         {
-            order = (order + 1) % ColorMap.Map.Count; 
+            order = (order + 1) % ColorMap.Map.Count;
             spriteRenderer.color = ColorMap.Map[order];
-            
+
         }
 
         Vector2 movement = new Vector2(horizontal, 0f);
@@ -66,7 +67,7 @@ public class Player : MonoBehaviour
     {
         foreach (Ball ball in spawn.SpawnedBalls)
         {
-            if(ball != null && ball.spriteRenderer.color == spriteRenderer.color && CheckCollision(ball) == 1)
+            if (ball != null && ball.spriteRenderer.color == spriteRenderer.color && CheckCollision(ball) == 1)
             {
                 pooling.ReturnBall(ball);
                 spawn.SpawnedBalls.Remove(ball);
@@ -75,7 +76,7 @@ public class Player : MonoBehaviour
                 ScoreProgress.CheckAndUpdateScore(score);
                 break;
             }
-            
+
         }
     }
 

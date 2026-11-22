@@ -1,5 +1,3 @@
-
-using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -29,14 +27,15 @@ public class Hud : MonoBehaviour
     {
         foreach (var image in lifeImages)
         {
-            if (lives > 0 ){
-            image.sprite = spritesCatalog.sprites[0];
+            if (lives > 0)
+            {
+                image.sprite = spritesCatalog.sprites[0];
             }
             else
             {
                 image.sprite = spritesCatalog.sprites[1];
             }
-            lives --;
+            lives--;
         }
     }
 }
